@@ -1,0 +1,8 @@
+{
+  "name": "desafiocrud",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "56126975"
+}
