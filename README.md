@@ -1,4 +1,4 @@
-*Rodar primeiro projeto back-end Laravel desafiocrud_nackend* 
+*Rodar primeiro projeto back-end Laravel desafiocrud_backend* 
 
 -Para installar Ionic
 npm install -g @ionic/cli
