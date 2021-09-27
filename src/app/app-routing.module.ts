@@ -15,6 +15,29 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+  {
+    path: 'pessoas',
+    loadChildren: () => import('./pessoas/pessoas.module').then( m => m.PessoasPageModule)
+  },
+  {
+    path: 'aplicativos',
+    loadChildren: () => import('./aplicativos/aplicativos.module').then( m => m.AplicativosPageModule)
+  },  {
+    path: 'cadastro-aplicativos',
+    loadChildren: () => import('./cadastro-aplicativos/cadastro-aplicativos.module').then( m => m.CadastroAplicativosPageModule)
+  },
+  {
+    path: 'editar-aplicativos',
+    loadChildren: () => import('./editar-aplicativos/editar-aplicativos.module').then( m => m.EditarAplicativosPageModule)
+  },
+
+  
+
+ 
 ];
 
 @NgModule({
