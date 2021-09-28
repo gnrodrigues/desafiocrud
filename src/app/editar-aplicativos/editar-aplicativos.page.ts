@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { take } from 'rxjs/operators';
 import { AplicativoService } from '../services/aplicativo.service';
@@ -12,25 +12,29 @@ import { AplicativoService } from '../services/aplicativo.service';
 })
 export class EditarAplicativosPage implements OnInit {
   form: FormGroup;
-  constructor(private aplicativoService: AplicativoService, private loadingCtrl: LoadingController, private router: Router) { }
-
+  id:any;
+  constructor(private aplicativoService: AplicativoService, private loadingCtrl: LoadingController, private router: Router, private activatedRoute:ActivatedRoute) { }
+ 
   ngOnInit() {
+    this.id = this.activatedRoute.snapshot.paramMap.get('id')
+    console.log(this.id)
+
     this.form = new FormGroup({
       nome: new FormControl(null,[Validators.required]),
       bundleID: new FormControl(null,[Validators.required]),
     })
   }
 
-  async cadastrarAplicativo(){
-    
+  async editarAplicativo(){
+ 
     const loading = await this.loadingCtrl.create({message: 'Cadastrando...'})
     loading.present();
-    this.aplicativoService.cadastrarAplicativo(this.form.value).pipe(take(1)).subscribe(() => {
+    this.aplicativoService.atualizarAplicativo(this.id, this.form.value).pipe(take(1)).subscribe(() => {
       this.form.reset();
-        loading.dismiss();
-        this.router.navigateByUrl("/home")
-        
+      loading.dismiss();
+    
       });
+      this.router.navigateByUrl("/home")
     
   }
 

@@ -1,4 +1,5 @@
 export interface Aplicativo {
+    id:number;
     nome:string;
     bundleId:string;
 }

@@ -27,11 +27,12 @@ export class CadastroAplicativosPage implements OnInit {
     loading.present();
     this.aplicativoService.cadastrarAplicativo(this.form.value).pipe(take(1)).subscribe(() => {
       this.form.reset();
-        loading.dismiss();
-        this.router.navigateByUrl("/home")
+      loading.dismiss();
+     
         
       });
-    
+     
+      this.router.navigateByUrl("/home")
   }
 
 

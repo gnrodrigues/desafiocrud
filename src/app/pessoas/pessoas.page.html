@@ -31,8 +31,10 @@
       (click)="abrirAplicativosModal(pessoas)">
       <ion-grid fixed>
         <ion-row>
-          <ion-col size="5">Nome: {{pessoas.nome}}</ion-col>
-          <ion-col size="5">CPF: {{pessoas.cpf}}</ion-col>
+          <ion-col size="3">Nome: {{pessoas.nome}}</ion-col>
+          <ion-col size="3">CPF: {{pessoas.cpf}}</ion-col>
+          <ion-col size="3">RG: {{pessoas.rg}}</ion-col>
+          <ion-col size="3">Data de Nascimento: {{pessoas.dataNascimento | date:"dd/MM/yy" }}</ion-col>
       
         </ion-row>
       </ion-grid>

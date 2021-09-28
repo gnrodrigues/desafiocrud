@@ -1,10 +1,19 @@
-*Rodar primeiro projeto back-end Laravel desafiocrud_backend* 
+# Desafio crud
 
--Para installar Ionic
-*npm install -g @ionic/cli*
+## Instalação
 
--Na raiz do projeto para installar dependências
-*npm install* 
+1. Instalar Ionic
+```bash
+npm install -g @ionic/cli
+```
 
--Para rodar projeto 
-*ionic serve*
+2. Rodar npm install na raiz do projeto para installar dependências
+
+```bash
+npm install
+```
+
+3. Rodar o projeto
+```bash
+ionic server
+```

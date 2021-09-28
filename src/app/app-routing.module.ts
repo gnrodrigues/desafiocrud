@@ -26,12 +26,13 @@ const routes: Routes = [
   {
     path: 'aplicativos',
     loadChildren: () => import('./aplicativos/aplicativos.module').then( m => m.AplicativosPageModule)
-  },  {
+  },
+  {
     path: 'cadastro-aplicativos',
     loadChildren: () => import('./cadastro-aplicativos/cadastro-aplicativos.module').then( m => m.CadastroAplicativosPageModule)
   },
   {
-    path: 'editar-aplicativos',
+    path: 'editar-aplicativos/:id',
     loadChildren: () => import('./editar-aplicativos/editar-aplicativos.module').then( m => m.EditarAplicativosPageModule)
   },
 

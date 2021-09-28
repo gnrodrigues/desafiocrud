@@ -23,11 +23,16 @@ export class AplicativoService {
 
 
   cadastrarPessoaAplicativo(pessoaAplicativo: PessoaAplicativo): Observable<PessoaAplicativo>{
-    return this.http.post<PessoaAplicativo>(`${this.apiUrl}/aplicativos`, pessoaAplicativo)
+    return this.http.post<PessoaAplicativo>(`${this.apiUrl}/pessoa_aplicativos`, pessoaAplicativo)
   }
 
   atualizarAplicativo(id: number, aplicativo: Aplicativo): Observable<Aplicativo>{
     return this.http.put<Aplicativo>(`${this.apiUrl}/aplicativos/${id}`, aplicativo)
+  }
+
+
+  deletarAplicativo(id: number): Observable<Aplicativo>{
+    return this.http.delete<Aplicativo>(`${this.apiUrl}/aplicativos/${id}`);
   }
 
 }

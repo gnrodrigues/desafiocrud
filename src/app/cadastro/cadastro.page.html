@@ -10,19 +10,19 @@
 <ion-content>
   <form [formGroup]='form'>
     <ion-item>
-      <ion-label position="floating">Nome:</ion-label>
+      <ion-label position="stacked" color="tint">Nome:</ion-label>
       <ion-input formControlName="nome"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">CPF:</ion-label>
+      <ion-label position="stacked" color="tint">CPF:</ion-label>
       <ion-input formControlName="cpf"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">RG:</ion-label>
+      <ion-label position="stacked" color="tint">RG:</ion-label>
       <ion-input formControlName="rg"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Data de Nascimento</ion-label>
+      <ion-label position="stacked" color="tint">Data de Nascimento</ion-label>
       <ion-datetime formControlName="dataNascimento" displayFormat="DD/MM/YYYY"
         value="2000-01-01 00:00:00" min="1900-01-01"></ion-datetime>
     </ion-item>
@@ -33,7 +33,7 @@
       </ion-list-header>
       <ion-item *ngFor="let aplicativo of aplicativos$|async">
         <ion-label>{{aplicativo.nome}}</ion-label>
-        <ion-checkbox slot="end" value="{{aplicativo.id}}" formControlName="aplicativoId"></ion-checkbox>
+        <ion-checkbox slot="end" value="{{aplicativo.id}}" (click)="selecionaApli($element)" formControl="aplicativoId"></ion-checkbox>
       </ion-item>
     </ion-list>
 

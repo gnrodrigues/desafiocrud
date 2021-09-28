@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { AplicativoService } from '../services/aplicativo.service';
 import { Aplicativo } from '../services/aplicativo.model';
 import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -17,7 +18,7 @@ export class AplicativosPage implements OnInit {
   @Input() aplicativo: Aplicativo;
   aplicativos$:Observable<Aplicativo[]>;
   constructor(private aplicativosService: AplicativoService, 
-    private loadingCtrl: LoadingController, private route: Router) { }
+    private loadingCtrl: LoadingController, private route: Router, ) { }
 
     
   doRefresh(event) {
@@ -39,9 +40,23 @@ export class AplicativosPage implements OnInit {
     );
   }
 
-  editarAplicativo() {
-    this.route.navigate(['/editar-aplicativos']);
+  editarAplicativo(id) {
+    console.log(id)
+    this.route.navigate(['/editar-aplicativos/' +id]);
   }
 
+
+  async deletarAplicativo(id){
+    console.log("TESTE DELETE")
+  
+    const loading = await this.loadingCtrl.create({message:'Apagando...'})
+    loading.present();
+      this.aplicativosService.deletarAplicativo(id).pipe(take(1)).subscribe(() =>
+        {
+          loading.dismiss();
+          window.location.reload();
+        })
+      
+  }
 
 }
